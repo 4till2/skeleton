@@ -35,7 +35,7 @@ function validateType(type){
 }
 
 function validateName(name){
-  return (!fs.directoryExists(name))
+  return (!fs.directoryExists(name) ? name : "ERROR")
 }
 
 //Create a file with a react template
