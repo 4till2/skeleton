@@ -1,5 +1,8 @@
-var templates = require('./templates');
-var fs = require('./file-ops');
+const templates = require('./templates');
+const fs = require('./file-ops');
+
+const default_extension = '.js';
+const default_directory = './';
 
 function validateDirectory(directory) {
   directory = directory || './';

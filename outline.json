@@ -1,25 +1,8 @@
 {
     "name": "body",
-    "directory": "",
-    "classes": ["aClass"],
+    "directory": "./",
+    "extension": ".js",
+    "classes": ["skeleton"],
     "type": "class",
-    "children": [{
-        "name": "products",
-        "directory": "",
-        "classes": ["aClass"],
-        "type": "class",
-        "children": [{
-            "name": "collection",
-            "directory": "",
-            "classes": ["aClass"],
-            "type": "class",
-            "children": []
-        }, {
-            "name": "selected",
-            "directory": "",
-            "classes": ["aClass"],
-            "type": "class",
-            "children": []
-        }]
-    }]
+    "children": []
 }
