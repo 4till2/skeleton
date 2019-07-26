@@ -72,7 +72,8 @@ exports.ReactTemplate = class {
     createTemplate(){
         if (this.type === 'class') return this.react_class();
         if (this.type === 'function') return this.react_function();
-        return this.react_empty;
+        if (this.type === 'root') return this.react_root();
+        return this.react_empty();
     }
 
     createImports(){
@@ -87,6 +88,10 @@ exports.ReactTemplate = class {
         return (`className="${this.classes.join(" ")}"`)
     }
 
+    createRenders(){
+        return (this.imports.map(imp => (`<${imp.name} />`))).join('\n\t\t\t\t');
+    }
+
 //REACT TEMPLATES
     react_class(){
         return (`
@@ -98,6 +103,7 @@ export default class ${this.name} extends Component {
         return (
             <${this.container} ${(this.classes) ? this.createClasses() : ''}>
                 ${this.visualizeContainer ? this.createContent(this.name) : ''} 
+                ${this.createRenders()}
             </${this.container}>
         )
     }
@@ -113,7 +119,8 @@ ${this.createImports()}
 export default function ${this.name}() {
     return (
         <${this.container} ${(this.classes) ? this.createClasses() : ''}>
-            ${this.visualizeContainer ? this.createContent(this.name) : ''} 
+            ${this.visualizeContainer ? this.createContent(this.name) : ''}
+            ${this.createRenders()} 
         </${this.container}>
     )
 } 
@@ -127,4 +134,12 @@ ${this.createImports()}
         `)
     }
 
+    react_root(){
+        return (`
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+ReactDOM.render(<${this.name} />, document.getElementById('root'));              
+        `)
+    }
 }

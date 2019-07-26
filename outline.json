@@ -1,8 +1,52 @@
 {
-    "name": "body",
+    "name": "A",
     "directory": "./",
     "extension": ".js",
     "classes": ["skeleton"],
     "type": "class",
-    "children": []
+    "children": [{
+        "name": "AB",
+        "directory": "./",
+        "extension": ".js",
+        "classes": ["skeleton"],
+        "type": "class",
+        "children": []
+    },
+    {
+        "name": "AC",
+        "directory": "./",
+        "extension": ".js",
+        "classes": ["skeleton"],
+        "type": "class",
+        "children": [{
+            "name": "ACA",
+            "directory": "./",
+            "extension": ".js",
+            "classes": ["skeleton"],
+            "type": "class",
+            "children": []
+        }]
+    },
+    {
+        "name": "AD",
+        "directory": "./",
+        "extension": ".js",
+        "classes": ["skeleton"],
+        "type": "class",
+        "children": [{
+            "name": "ADA",
+            "directory": "./",
+            "extension": ".js",
+            "classes": ["skeleton"],
+            "type": "class",
+            "children": []
+        },{
+            "name": "ADB",
+            "directory": "./",
+            "extension": ".js",
+            "classes": ["skeleton"],
+            "type": "class",
+            "children": []
+        }]
+    }]
 }

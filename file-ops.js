@@ -1,7 +1,8 @@
 const fs = require('fs-extra');
+var exports = module.exports; 
 
 // Append to file
-module.exports.appendFile = function(path, content) {
+exports.appendFile = function(path, content) {
     fs.appendFile(path, content, function (err) {
         if (err) throw err;
         console.log('Saved ' + path + '!');
@@ -9,7 +10,7 @@ module.exports.appendFile = function(path, content) {
 }
 
 // Open file for writing
-module.exports.openFile = function(path, rules = 'w') {
+exports.openFile = function(path, rules = 'w') {
     fs.open(path, rules, function (err, file) {
         if (err) throw err;
         console.log('Opened ' + path + '!');
@@ -17,7 +18,11 @@ module.exports.openFile = function(path, rules = 'w') {
 }
 
 //  Replace file
-module.exports.writeFile = function(path, content) {
+exports.writeFile = function(path, content) {
+    if (path.slice(-2) === './') {
+        console.err("No Overwriting current directory")
+        return;
+    }
     fs.writeFile(path, content, function (err) {
         if (err) throw err;
         console.log('Saved ' + path + '!');
@@ -25,13 +30,13 @@ module.exports.writeFile = function(path, content) {
 }
 
 // Delete file or directory
-module.exports.deleteFileOrDirectory = function(path) {
+exports.deleteFileOrDirectory = function(path) {
     fs.removeSync(path);
     console.log('Deleted: ' + path);
 }
 
 // Read JSON from file
-module.exports.readJson = function(path) {
+exports.readJson = function(path) {
     return new Promise(function (resolve, reject) {
         fs.readJson(path, (err, jsonObject) => {
             if (err) reject(err)
@@ -40,11 +45,11 @@ module.exports.readJson = function(path) {
     })
 }
 
-module.exports.directoryExists = function(directory){
+exports.directoryExists = function(directory){
     return fs.existsSync(directory)
 }
 
-module.exports.makeDirectory = function(directory){
+exports.makeDirectory = function(directory){
     fs.mkdirSync(directory)
     return true
 }

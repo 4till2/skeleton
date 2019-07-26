@@ -1,12 +1,23 @@
 {
-  "name": "rndm",
+  "name": "skeleton",
   "version": "1.0.0",
-  "description": "",
+  "description": "Quickly create your projects file structure with customized template code",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "dependencies": {
+    "fs-extra": "^8.1.0"
+  },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "yosef serkez",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yserkez/skeleton.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yserkez/skeleton/issues"
+  },
+  "homepage": "https://github.com/yserkez/skeleton#readme"
 }
